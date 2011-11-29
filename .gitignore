@@ -1,0 +1,16 @@
+*.d
+*.o
+*.swp
+.project
+core
+spl
+*.absyn
+
+lex.yy.c
+parser.output
+parser.tab.c
+parser.tab.h
+parser_referenz.txt
+parser_test.txt
+parser_unterschiede.txt
+ChangeLog
