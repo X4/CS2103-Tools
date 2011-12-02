@@ -19,6 +19,24 @@ make verify → Zeigt welche Dateien noch nicht mit eurem Compiler laufen.
 
 make tests → Führt einfach alle SPL Programme in Tests/ beginnend mit test?? aus. (original)
 
+make scannerTest → Führt den SPL-Compiler interaktiv mit dem flag --tokens flag aus und gibt erkannte token an (HU1).
+
+make scannerTest2 → Führt den SPL-Compiler interaktiv mit dem flag --tokens flag aus und gibt erkannte token an (HU2).
+
+make scannerRef → Führt den Referenzcompiler interaktiv mit dem flag --tokens flag aus und gibt erkannte token an (HU2).
+
+make parserTest → Führt den SPL-Compiler interaktiv aus und gibt die Ausgabe zurück (HU1).
+
+make parserTest2 → Führt den SPL-Compiler interaktiv aus und gibt die interpretierte Ausgabe zurück (HU2).
+
+make parserRef → Führt den Referenzcompiler interaktiv aus und gibt die interpretierte Ausgabe zurück (HU1).
+
+make astTest → Führt den SPL-Compiler interaktiv mit dem flag --absyn aus und gibt den AST aus (HU1).
+
+make astTest2 → Führt den SPL-Compiler interaktiv mit dem flag --absyn aus und gibt den AST aus (HU2).
+
+make astRef → Führt den Referenzcompiler interaktiv mit dem flag --absyn aus und gibt den AST aus (HU1).
+
 Details zu verify:
 Erzeugt euch einen AST cache zu euren SPL Programmen aus der Referenzimplementierung (Tests/*.absyn) und jeweils eine Datei mit allen Parserbäumen eurer Testprogramme unter nutzung des Referenzcompilers (parser_referenz.txt) und eurem Programm (parser_test.txt). Anschließend wird ein diff aus diesen beiden Dateien erstellt und in parser_unterschiede.txt abgelegt. Das nützlichste Feature allerdings ist, dass auf der Konsole visuell gezeigt wird Welche SPL Prgrammme vermutlich auf eurem SPL-Commpiler nicht funktionieren. Das ist keine Garantie!! Wenn Ihr die Semantische Analyse noch nicht gemacht habt, ist es absolut logisch das zum Beispiel eine leere SPL Datei nicht Kompiliert in der Referenzimplementierung aber in eurer Version schon.
 
@@ -27,8 +45,10 @@ sudo apt-get install tcc
 
 ### Warum läuft verify nicht unter Mac OSX?
 Tut mir leid, habe momentan keine Referenzimplementierung die auf Mac compiliert wurde, aber werde sobald möglich eine hinzufügen.
-Ich denke manches wird bei Mac nicht funktionieren wie zum beispiel die Bash Farben, wenn Ihr einen Mac habt, schickt mir nen pull request bzw. fix.
+Ich denke manches wird bei Mac nicht funktionieren wie zum beispiel die Bash Farben, wenn Ihr einen Mac habt, schickt mir einen pull request bzw. fix. und ich kümmer mich drum, bzw lege eine OSX branch an.
 
 ### Fragen?
 RTFM und README_SPL
 Happy Hacking :)
+
+### Credits: Herr Ulbrich für tricks in verify, Marcel für den ansatz in verify, Herr Geisse für die Referenzimplementierung
