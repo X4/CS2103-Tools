@@ -29,7 +29,7 @@ Erzeugt euch einen AST cache zu euren SPL Programmen aus der Referenzimplementie
 ### Warum geht 'make fast' nicht?
 sudo apt-get install tcc
 
-### Warum läuft es unter Mac OSX läuft nicht?
+### Warum läuft verify nicht unter Mac OSX?
 Tut mir leid, habe momentan keine Referenzimplementierung die auf Mac compiliert wurde, aber werde sobald möglich eine hinzufügen.
 Ich denke manches wird bei Mac nicht funktionieren wie zum beispiel die Bash Farben, wenn Ihr einen Mac habt, schickt mir nen pull request bzw. fix.
 
