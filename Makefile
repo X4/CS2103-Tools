@@ -1,8 +1,6 @@
 #
 # Makefile for SPL compiler
 #
-# See: https://github.com/X4/CS2103-Tools
-# Author: Fernandos
 
 NO_COLOR="\033[0m"
 OK_COLOR="\033[30;1m"
@@ -17,7 +15,7 @@ SRCS = main.c utils.c parser.tab.c lex.yy.c absyn.c sym.c
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 BIN = spl
 
-.PHONY:		all ast run fast verify depend clean dist-clean
+.PHONY:		all ast run fast verify tests depend clean dist-clean
 
 all:		$(BIN)
 
@@ -28,11 +26,19 @@ $(BIN):		$(OBJS)
 		$(CC) $(CFLAGS) -o $@ -c $<
 
 parser.tab.c:	parser.y
-		bison -v -d -t parser.y
+		bison -v -d -t --warnings=all parser.y
 
 lex.yy.c:	scanner.l
 		flex scanner.l
 
+tests:		all
+		@for i in Tests/test??.spl ; do \
+		  echo ; \
+		  ./$(BIN) $$i ; \
+		done
+		@echo
+
+-include depend.mak
 
 fast:
 		@make CC="tcc" CFLAGS="-Wall -Wimplicit-function-declaration -c -g" LDLIBS="-L/usr/lib/x86_64-linux-gnu/"| sed -e '/Entering\|Leaving/d' -e '/Betrete\|Verlasse/d'
