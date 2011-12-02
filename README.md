@@ -4,7 +4,7 @@
 Sicher habt Ihr schon eine parser.out generiert und euch die Grammatik eurer Sprache zu Gemüte geführt, nebenbei den abstrakten Syntaxbaum eures SPL-Compilers und die der Referenzimplementierung in einem Anderen Tab zu vergleichen versucht. Nach kurzer Zeit verliert man dann den Überblick und errinnert sich nicht mehr welchen Fehler man eigentlich suchte. Kommt das bekannt vor?
 Wenn euch Bison noch erzürnt schaut euch 'man bison' bzw. 'info bison' für detailiertere Angaben an. Wer mehr will und Beispiele sucht findet diese in 'bison.pdf'.
 
-## Ein schnellerer buildvorgang
+## Ein schnellerer Buildvorgang
 Ich nutze während der Entwicklung TCC und für Releases GCC. Es ist schneller und ich probiere gerne neues. ↪ [TCC](http://bellard.org/tcc/) ist vielen nicht bekannt, aber tcc hat nahezu alle features die auch gcc hat, außer der Platform Portabilität. Linux kernel compilierung ist 30% schneller (10 seconds @2.4 GHz Intel P4) siehe: ↪ [TCC vs GCC](http://bellard.org/tcc/#speed)
 Optional: Durch den parameter -j könnt ihr mehr Prozessoren/Cores zur compilirung nutzen. Bsp: make -j6 macht in diesem fall keinen sinn da die Compilierung selten lange dauert und race-conditions auftreten können.
 
