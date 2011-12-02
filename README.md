@@ -2,15 +2,11 @@
 
 ## Um die Fehlersuche angenehmer zu machen
 Sicher habt Ihr schon eine parser.out generiert und euch die Grammatik eurer Sprache zu Gemüte geführt, nebenbei den abstrakten Syntaxbaum eures SPL-Compilers und die der Referenzimplementierung in einem Anderen Tab zu vergleichen versucht. Nach kurzer Zeit verliert man dann den Überblick und errinnert sich nicht mehr welchen Fehler man eigentlich suchte. Kommt das bekannt vor?
+Wenn euch Bison noch erzürnt schaut euch 'man bison' bzw. 'info bison' für detailiertere Angaben an. Wer mehr will und Beispiele sucht findet diese in 'bison.pdf'.
 
-## Search and Destroy
-Fehler finden und eliminieren, eure Hauptaufgabe solltet Ihr euch mehr widmen als manpages zu durchforstern um euer diff ordentlich zu bekommen und Compiler Flags zu suchen um mehr Debugging Ausgaben zu erhalten.
-
-## Eure Waffe: Ein Makefile und ein Shell Script (+Docs)
-Wenn euch Bison noch erzürnt schaut euch die man bison bzw. info bison für Detailiertere Angaben an. Wer mehr will und Beispiele sucht findet diese in bison.pdf
-
-## Der Schnellste Compiler
-Ich nutze während der Entwicklung TCC und für Releases GCC. Warum? Es ist schneller und warum eigentlich nicht, wenn es keine Bugs gibt? ↪ [TCC](http://bellard.org/tcc/) ist vielen nicht bekannt, aber er hat nahezu alle features die auch GCC hat, außer der Platform Portabilität. Linux kernel compilierung ist 30% schneller (10 seconds @2.4 GHz Intel P4) siehe: ↪ [TCC vs GCC](http://bellard.org/tcc/#speed)
+## Ein schnellerer buildvorgang
+Ich nutze während der Entwicklung TCC und für Releases GCC. Es ist schneller und ich probiere gerne neues. ↪ [TCC](http://bellard.org/tcc/) ist vielen nicht bekannt, aber tcc hat nahezu alle features die auch gcc hat, außer der Platform Portabilität. Linux kernel compilierung ist 30% schneller (10 seconds @2.4 GHz Intel P4) siehe: ↪ [TCC vs GCC](http://bellard.org/tcc/#speed)
+Optional: Durch den parameter -j könnt ihr mehr Prozessoren/Cores zur compilirung nutzen. Bsp: make -j6 macht in diesem fall keinen sinn da die Compilierung selten lange dauert und race-conditions auftreten können.
 
 ## Makefile Targets
 make run → Führt einfach alle SPL Programm unter Tests/ aus
