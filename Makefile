@@ -106,6 +106,18 @@ astRef:		all
 		@./splRef --absyn  /dev/stdin /dev/null
 
 
+
+tableTest:	all
+		@echo $(FILE_COLOR)SYMBOLTABELLEN'\n'$(OK_COLOR)CTRL + D signalisiert -- EOF --'\n'$(NO_COLOR)
+		@./spl --tables /dev/stdin
+tableTest2:	all
+		@echo $(FILE_COLOR)SYMBOLTABELLEN'\n'$(OK_COLOR)CTRL + D signalisiert -- EOF --'\n'$(NO_COLOR)
+		@./spl --tables /dev/stdin /dev/null
+tableRef:		all
+		@echo $(FILE_COLOR)SYMBOLTABELLEN DER REFERENZ'\n'$(OK_COLOR)CTRL + D signalisiert -- EOF --'\n'$(NO_COLOR)
+		@./splRef --tables  /dev/stdin /dev/null
+
+
 depend:		parser.tab.c lex.yy.c
 		$(CC) $(CFLAGS) -MM $(SRCS) > depend.mak
 
